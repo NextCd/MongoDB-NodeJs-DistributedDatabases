@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CRUD Nodejs y MongoDb</title>
+        <!-- BOOTSTRAP CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="#">CRUD Nodejs Y Mongodb</a>
+        </nav>
+
+        <div class="container">
+
+            <div class="row">
+                <!--FORM-->
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/add" method="post">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="IdNumber" placeholder="Id number">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="Name" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="ScndName" placeholder="Second Name">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="Grade1" placeholder="First grade">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="Grade2" placeholder="Second grade">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="Grade3" placeholder="Third grade">
+                                </div>
+                                <button class="btn btn-primary btn-block" type="submit">
+                                    Add
+                                </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        
+            <!-- LIST -->
+                <div class="col-md-8">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                            <th>N°</th>
+                            <th>Name</th>
+                            <th>ScnName</th>
+                            <th>First Grade</th>
+                            <th>Scnd Grade</th>
+                            <th>Third Grade</th>
+                            <th>Total</th>
+                            <th>Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i=0; i < students.length; i++) { %>
+                            <tr>
+                                <td><strong><%= students[i].IdNumber %></strong></td>
+                                <td><%= students[i].Name %></td>
+                                <td><%= students[i].ScndName %></td>
+                                <td><%= students[i].Grade1 %></td>
+                                <td><%= students[i].Grade2 %></td>
+                                <td><%= students[i].Grade3 %></td>
+                                <td><%= students[i].Total  %></td>
+                                <td>
+                                <a
+                                    class="<%= students[i].status ? 'btn btn-success' : 'btn btn-dark'%>"
+                                    href="/turn/<%= students[i]._id %>">
+                                    Done
+                                </a>
+                                <a href="/delete/<%= students[i]._id %>"
+                                    class="btn btn-danger">
+                                    Delete
+                                </a>
+                                <a href="/edit/<%= students[i]._id %>" class="btn btn-info">
+                                    Edit
+                                </a>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+        
+                </div>
+            </div>
+    
+        </div>
+
+    </body>
+</html>

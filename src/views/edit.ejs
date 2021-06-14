@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CRUD Nodejs y MongoDb</title>
+        <!-- BOOTSTRAP CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="#">CRUD Nodejs Y Mongodb</a>
+        </nav>
+
+        <div class="container">
+        <div class="row">
+            <!--FORM-->
+            <div class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                <form action="/edit/<%= student._id %>" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="IdNumber" placeholder="Id number">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="ScndName" placeholder="ScndName">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Grade1" placeholder="First grade">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Grade2" placeholder="Second grade">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Grade3" placeholder="Third grade">
+                    </div>
+                    <button class="btn btn-primary" type="submit">
+                    Update 
+                    </button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+    </body>
+</html>
